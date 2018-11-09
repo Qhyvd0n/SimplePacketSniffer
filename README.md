@@ -23,7 +23,9 @@ git clone https://github.com/Qhyvd0n/SimplePacketSniffer.git
 
 $ cd SimplePacketSniffer
 $ apt-get install python pip
-$ pip install -r requirements.txt
+$ pip install scapy
+$ pip install scapy_http
+$ pip install optparse
 $ python SimplePacketSniffer --help
 
 ## DISCLAIMER
